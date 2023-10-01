@@ -1,0 +1,8 @@
+
+public class PruebaMetodos {
+	public static void main(String[] args) {
+		Cuenta cuenta = new Cuenta(); //El 'cuenta' con minuscula es el nombre de la variable y hace referencia a cualquier cuenta que vayamos a crear. Tiene ese nombre para que sea descriptivo. 
+
+
+	}
+}

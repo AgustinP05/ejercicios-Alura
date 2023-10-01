@@ -1,0 +1,64 @@
+package ar.com.collectionsprac;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import ar.com.collectionsprac.model.Cursada;
+
+public class ejemplo5 {
+	public static void main(String[] args) {
+		
+		Cursada curso1 = new Cursada("Geometria", 30);
+		Cursada curso2 = new Cursada("Fisica", 10);
+		Cursada curso3 = new Cursada("Quimica", 40);
+		Cursada curso4 = new Cursada("Historia", 25);
+		Cursada curso5 = new Cursada("Biologia", 35);
+		Cursada curso6 = new Cursada("Literatura", 50);
+		Cursada curso7 = new Cursada("Matematica", 60);
+		Cursada curso8 = new Cursada("Arte", 45);
+
+		ArrayList<Cursada> cursos = new ArrayList<Cursada>();	
+		cursos.add(curso1);
+		cursos.add(curso2);
+		cursos.add(curso3);
+		cursos.add(curso4);
+		cursos.add(curso5);
+		cursos.add(curso6);
+		cursos.add(curso7);
+		cursos.add(curso8);
+		
+		System.out.println(cursos);
+		
+		///////////////////Ver el tiempo total de todos los cursos
+		
+		//Ordenar con Collections
+		Collections.sort(cursos, Comparator.comparing(Cursada::getNombre).reversed());
+		
+		//Con un for sumamos los tiempos de cada materia en la variable tiempo
+		int tiempo = 0;
+		for(Cursada curso : cursos) {
+			tiempo += curso.getTiempo();
+		}
+		System.out.println("Tiempo total de "+tiempo);
+	
+		//Con stream
+		
+		List<Cursada> cursoEj2 = cursos.stream().filter(elemento -> !elemento.getNombre().equalsIgnoreCase("Historia")) .sorted(Comparator.comparingInt(Cursada::getTiempo)).collect(Collectors.toList());
+		System.out.println(cursoEj2);
+	
+		System.out.println(cursos.stream().filter(elemento -> !elemento.getNombre().equalsIgnoreCase("Historia")).mapToInt(Cursada::getTiempo).sum()); 
+		//El mapToInt es una funcion para tomar numeros de algo y los retorna en int, para luego aplicarle otro metodo. En este caso es sum, que suma todos los numeros que el map agarró.
+		//Ademas use filter para no contar Historia
+		
+		System.out.println(cursos.stream().mapToInt(Cursada::getTiempo).max().getAsInt());
+		//max es para obtener el valor maximo entre los que se tomaron en el map. Y retornara el numero dentro de un array optional.
+		//Entonces usamos el getAsInt para que nos devuelva el entero nada mas.
+		
+		System.out.println(cursos.stream().mapToInt(Cursada::getTiempo).average());//Promedio
+		
+		System.out.println(cursos.stream().mapToInt(Cursada::getTiempo).min());
+	}
+}

@@ -1,0 +1,100 @@
+.quienes-somos{
+    align-items: center;
+    color: #8C8888;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    padding: 3rem ;
+}
+
+.quienes-somos__titulo{
+    color: #8D0606;
+    font-family:Pacifico,cursive;
+    font-size:3.1875rem;
+}
+
+.quienes-somos__descripcion{
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 1.75rem;
+}
+
+
+/*Personas*/
+.personas{
+    /* padding: 5rem;
+    padding-bottom: 0; */
+
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+
+    justify-content: space-between;
+}
+
+.persona{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.persona__imagen{
+    border-radius: 50%;
+}
+
+.persona__nombre{
+    font-family:Pacifico,cursive;
+    color: #8D0606;
+
+    font-size: 2.3rem;
+
+    margin: 1.25rem 0;
+}
+
+.persona__funcion{
+    
+    font-family: 'Roboto';
+    
+    font-size: 1.5rem;
+}
+
+
+
+@media screen and (min-width:0){
+    .personas{
+        flex-direction: column;
+        
+        padding: 5rem;
+        padding-bottom: 0;
+    }
+
+    .persona__funcion{
+        margin-bottom: 5.25rem;
+        text-align: center;
+    }
+   
+}
+
+/* @media screen and (min-width:768px){
+    .personas{
+        
+       
+    }
+
+    .persona__nombre{
+        
+    
+    }
+   
+} */
+
+@media screen and (min-width:968px){
+    .personas{
+        flex-direction: row;
+
+        padding: 5rem;
+    }
+
+   
+}

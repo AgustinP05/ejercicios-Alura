@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>AÑO MUNDIAL</h1>
+    <script>
+
+          function saltolinea() {
+            document.write("<br><br><br>");
+
+        }
+
+        function imprimirAlgo(frase){
+            document.write(frase);
+        } /*Para poder invocar imprimirAlgo("Escribir cual cosa aquí dentro"), tenemos que declarar que document.write() va a tener adentro una variable 'frase'. Y que a su vez, la funcion imprimirAlgo reciba como parametro una variable frase. Ahora todo lo que escribamos dentro de imprimirAlgo(), va a ser tambien 'frase' y se acciona la funcion imprimiendo el texto como un document.write.*/
+        
+
+
+        /*Calcular cada año de mundial*/
+        var anioMundial=1930;
+        var anioLimite= parseInt(prompt("Ingrese el año limite para calcular."))
+
+        while(anioMundial<=anioLimite){
+            imprimirAlgo("Hubo mundial de la fifa en el año "+anioMundial);
+            anioMundial= (anioMundial+4)
+            saltolinea();
+        } /*Lo que hace el while es que: mientras se cumpla la condicion que tiene, se repite el contenido del ciclo. Puse el imprimirAlgo antes de la cuenta, asi primero muestra el año 1930 y a partir de ahi comienza a resolver la cuenta para que se le sume 4.*/
+
+    </script>
+
+    
+    
+    <script>/*Sorteo con while para decirte que erraste*/
+    
+        function saltarLinea() {
+    
+            document.write("<br>");
+        }
+    
+        function imprimir(frase) {
+    
+            document.write(frase);
+            saltarLinea();
+        }
+    
+        function sortearNumero() {
+    
+            return Math.round(Math.random() * 100); /*Para que sea numero random entre 0-100.*/
+        }   
+    
+        var numeroPensado = sortearNumero();
+        var erraste=0;
+    
+        var numeroLanzado = parseInt(prompt("Ingrese un número entre 0-10: "));
+    
+        if(numeroLanzado  == numeroPensado) {
+    
+            imprimirAlgo("Uau! Vos acertaste, pues yo pensé en el número " + numeroPensado);
+        } else {
+
+            while(erraste<10){
+                erraste++;  /* antes de entrar al ciclo, erraste estaba en 0 En este punto se le suma 1.*/
+                imprimirAlgo("¡Se acabó, vos erraste! "+erraste); /*Se imprime el estado en el que esta.*/
+                saltarLinea();
+                /*Se vuelve a repetir hasta que no se cumpla la condicion.*/
+
+
+            }
+    
+            // imprimir("¡Se acabó, vos erraste!");
+            // imprimir("¡Se acabó, vos erraste!");
+            // imprimir("¡Se acabó, vos erraste!");
+            // imprimir("¡Se acabó, vos erraste!");
+            // imprimir("¡Se acabó, vos erraste!");
+            // imprimir("¡Se acabó, vos erraste!");
+            // imprimir("¡Se acabó, vos erraste!");
+            // imprimir("¡Se acabó, vos erraste!");
+            // imprimir("¡Se acabó, vos erraste!");
+            // imprimir("¡Se acabó, vos erraste!");
+        }
+    </script>
+</body>
+</html>

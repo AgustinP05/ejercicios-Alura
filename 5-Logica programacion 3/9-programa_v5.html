@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+            var pantalla = document.querySelector("canvas"); 
+            var pincel = pantalla.getContext("2d");
+            pincel.fillStyle="grey";
+            pincel.fillRect(0,0,600,400);
+
+            function exibirAlert(evento){
+                var x= evento.pageX - pantalla.offsetLeft; /*Al momento en el que se ejecute la funcion, se nos mostrara la posicion de X del evento al momentoen el que hacemos click. Le ponemos pantalla.offsetLeft para que nos reste lo que sobra de viewport desde la izquierda, ya que la funcion nos da la cordenada del viewport y yo solo quiero de la 'pantalla' de canvas.*/
+                var y= evento.pageY - pantalla.offsetTop; //idem con Y.
+                console.log(evento);
+                alert(x+", "+y);
+            }
+
+
+            function dibujarCirculo(evento){
+                var x= evento.pageX - pantalla.offsetLeft;
+                var y= evento.pageY - pantalla.offsetTop; 
+                pincel.fillStyle="blue";
+                pincel.beginPath();
+                pincel.arc(x,y,10,0,2*3.14);
+                pincel.fill()
+
+                console.log(x+", "+y);
+                
+            }
+
+            /*exibirAlert();*//*Si yo lo llamo de esta forma, automaticamente se ejecuta al iniciar la pagina. Pero yo quiero asociarlo al click que se haga al objeto 'pantalla', que esta asociada a la superficie 600x400.*/
+            /*pantalla.onclick=exibirAlert;*/ /*Cuando le hago click en el objeto pantalla, se ejecuta la function exibirAlert. Se pone la funcion sin parentesis, ya que sino se ejecutaria automaticamente.*/
+
+
+            pantalla.onclick=dibujarCirculo;
+    </script>
+</body>
+</html>

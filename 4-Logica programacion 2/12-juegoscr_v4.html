@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Probando input</h1>
+
+    <input type="number">
+    <button>Verificar Numero</button>
+
+    <script>
+
+        //Ver el programa anterior para las cosas que ya estaban.
+
+        /*Ahora se pidden 4 valores aleatorios.*/
+
+
+       function aleatorio(){ 
+       return Math.round(Math.random()*10);
+       }/*Aqui cree una function 'aleatorio' para usar cuando quiera invocar numeros aleatorios.*/
+
+       function sortearNumeros(cantidad){
+            
+            var secreto=[]; /*puedo llamarlo secreto porque es una variable local declarada solo aca dentro.*/
+
+            var contador=1;
+
+            while(contador<=cantidad){
+
+               var numeroAleatorio=aleatorio();
+               console.log(numeroAleatorio);
+               var encontrado=false;
+
+               if(numeroAleatorio!=0){
+
+                    for(var posicion=0;posicion<secreto.length;posicion++){ /*Con posicion me refiero a la posicion dentro del array. Hago que este for se ejecute por todos los valores del array.*/
+                        if(numeroAleatorio==secreto[posicion]){
+
+                            encontrado=true;
+
+                            break;/*corta el for.*/
+
+                        }
+
+                    }
+
+                    if(encontrado==true){
+                        secreto.push(numeroAleatorio); 
+                        contador++;   
+                    }
+
+               }
+
+                
+
+                
+
+                
+            }
+            return secreto;
+                
+       }
+
+       var secreto= sortearNumeros(4);/* Cuando llame la funcion sortearNumeros. Va a haber un array vacio, es decir que nos e sabe el tamaño. Y el numero que ponemos en sortearNumeros(4) esta conectado a la variable cantidad en la funcion, entonces el contador va a tener como maximo el numero de cantidad. Se va a repetir el while las veces que sean hasta llegar a cantidad y nos retorna el secreto local.*/
+       console.log(secreto);
+
+
+
+
+       /*------------------------------------*/
+      /* var secreto= [];*///Esta vacia.
+       /*nombrevar.push() sirve para ingresar valores manualmente al array  
+       secreto.push(3);
+       secreto.push(5);
+       secreto.push(7);
+       secreto.push(9); 
+       El array que teniamos originalmente da el mismo resultado que lo que escribi aca arriba. Ahora voy a hacerlo pero con numeros aleatorios.
+       Pero para eso escribo una funcion 'aleatorio' para hacerlo mas facil al escribir.*/
+        /*
+       secreto.push(aleatorio());
+       secreto.push(aleatorio());
+       secreto.push(aleatorio());
+       secreto.push(aleatorio());
+       Para que cada vez no tengamos que aumentar la cantidad de numeros aleatorios, tambien voy a ha cer una function arriba para hacerlo*/
+       
+       
+
+       
+        var input= document.querySelector("input"); 
+        input.focus();
+
+        
+        function verificar(){ 
+
+            var encontrado=false;
+            for(var posicion=0;(posicion<secreto.length);posicion++){ 
+                        
+                if(parseInt(input.value)==secreto[posicion]){  
+
+                    alert("Usted acertó. Era "+(input.value));
+                    encontrado=true; 
+                    break; 
+                } 
+                
+
+            }
+
+            
+            if(encontrado==false){
+
+                alert("Usted erró con "+(input.value)+".");
+
+            }
+
+
+            input.value= "";
+            input.focus();
+
+        }
+
+        var button= document.querySelector("button");
+
+        button.onclick = verificar;
+        
+       
+        
+
+
+    </script>
+    
+</body>
+</html>

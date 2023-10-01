@@ -1,0 +1,29 @@
+package ar.com.bytebank.modelo;
+
+public class CuentaAhorros extends Cuenta {//Pasa lo mismo que en CuentaCorriente
+
+	public CuentaAhorros(int agencia, int numero) {
+		super(agencia, numero);
+	}
+
+	//El padre, al tener una funcion anstracta, CuentaAhorros está obligada a traerla y sobreescribirla.
+	@Override
+	public void depositar(double valor) {
+		//Al principio quise utilizar this.saldo para depositar en la cuenta. 
+		//El problema es que: 1- la propiedad saldo no existe en CuentaAhorro. Pero si la queremos crear en esta clase, se repetería bastante el codigo entre las hijas.
+		//2 - la propiedad saldo que puede heredarse del padre Cuenta es private, entonces no la puedo utilizar aquí.
+		//Una forma de resolver este problema, es que saldo del padre en lugar de private, que sea protected para que solo sea visible para sus clases hijas.
+		//Con eso ya se puede usar la propiedad
+		this.saldo = this.saldo + valor;
+	}
+
+	@Override
+	public int compareTo(Cuenta o) {
+		// TODO Auto-generated method stub
+		return Double.compare(this.saldo, o.saldo);;
+	}
+	
+	
+		
+	
+}

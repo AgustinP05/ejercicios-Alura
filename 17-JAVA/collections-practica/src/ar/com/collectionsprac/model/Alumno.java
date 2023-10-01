@@ -1,0 +1,58 @@
+package ar.com.collectionsprac.model;
+
+import java.util.HashSet;
+
+public class Alumno{
+	private String nombre;
+	private String codigo;
+	
+	//Constructor
+	public Alumno(String nombre, String codigo){
+		this.nombre = nombre;
+		this.codigo = codigo;
+	}
+	///////
+	
+	//Setters y getters
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	
+	public String getCodigo() {
+		return codigo;
+	}
+
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	///////////
+	
+	
+	//Metodo sobreescrito para que retorne el nombre y no el hash
+		@Override
+		public String toString() {
+			return (this.nombre+ " - "+this.codigo);
+		}
+
+		//Para comparar por nombre
+		@Override
+		public boolean equals(Object obj) {
+			Alumno alumno = (Alumno) obj;
+			return (this.nombre.equals(alumno.getNombre()));
+		}
+		
+		//Para que guarde en un mismo hash cuando se quiere instanciar un nombre ya creado
+		@Override
+		public int hashCode(){
+			return (this.nombre).hashCode();//Crea un hash para el nombre, cada vez que se llama a ese nombre, se referencia al mismo hash
+		}
+		
+}

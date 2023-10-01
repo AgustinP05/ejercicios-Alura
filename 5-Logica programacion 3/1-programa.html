@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Vamos a ver canvas</h1>
+    
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        var pantalla= document.querySelector("canvas"); //Agarramos la etiqueta html canvas y esta accion la convertimos en pantalla.
+        var pincel= pantalla.getContext("2d");//Para decir que vamos a dibujar en el contexto 2d en el objeto pantalla. Y esta accion se va a llamar pincel.
+
+
+        pincel.fillStyle="lightgray"; /*propiedad/caracteristica del objeto 'pincel' para definir color. Se pone arriba del dibujo que se quiere modificar.*/
+        /*Recordar. Para ibujar en canvas hay que tomar en cuenta los ejes x e y.*/
+        /*Para llenar el rectangulo con 'pincel', hacemos la siguiente funcion.*/
+        pincel.fillRect(0,0,600,400); //funcion(metodo) donde decimos que empiece en el punto 0,0 y que avance 600 en horizontal y 400 en vertical.
+
+        //otros rectangulos dentro del grande
+        pincel.fillStyle="green";
+        pincel.fillRect(0,0,200,400);
+
+        pincel.fillStyle="red";
+        pincel.fillRect(400,0,600,400);
+
+        //triangulo
+        pincel.fillStyle="yellow";
+        pincel.beginPath(); //Comenzar camino. Seria la funcion para apoyar el lapiz en la pizarra 2d para querer dibujar.
+        pincel.moveTo(300,200);/*Para mover el pincel a esta posicion sin crear dibujo*/
+        pincel.lineTo(200,400);/*Dibujar una linea desde donde estabamos hasta el punto que dibujamos en esta funcion*/
+        pincel.lineTo(400,400);
+        pincel.fill(); /*Es una funcion para rellenar de color el camino que estabamos dibujando.*/
+
+        //circunferencia
+        pincel.fillStyle="blue";
+        pincel.beginPath(); //Comenzar camino. 
+        pincel.arc(300,200,50,0,2*3.14);/*Los primeros dos son el X e Y donde nos vamos a posicionar. El tercero es el radio. cuarto angulo inicial. quinto angulo final*/
+        pincel.fill(); /*Es una funcion para rellenar de color el camino que estabamos dibujando.*/
+
+        /*Podria buscar API para mejorar los diseños con canvas*/
+
+        
+
+
+        
+    </script>
+
+</body>
+</html>

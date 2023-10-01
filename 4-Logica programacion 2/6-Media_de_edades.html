@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>MEDIA DE EDADES</h1>
+
+    <script>
+         function saltolinea() {
+            document.write("<br><br><br>");
+
+        }
+
+        function imprimirAlgo(frase){
+            document.write(frase);
+        }
+
+
+        var cantidad= parseInt(prompt("Ingrese la cantidad de personas"));
+        var cantInicial=1;
+        var totalEdades=0; /*Lo pongo afuera del while, ya que si esta dentro, cada vez que se haga el ciclo, va a volver a cero.*/
+        
+        while(cantInicial<=cantidad){
+           
+           edad= parseInt(prompt("Ingrese la edad de su familiar"));
+           totalEdades= totalEdades+edad;
+           cantInicial++;
+           saltolinea();
+
+        }
+        imprimirAlgo("La suma de las edades son "+totalEdades);
+        saltolinea();
+        imprimirAlgo("La media de las edades puestas son "+(totalEdades/cantidad));
+
+
+        /*
+        num=2;
+        while(num<=100){
+            
+            imprimirAlgo(num);
+            num= (num+2);
+            saltolinea();
+        }
+        imprimirAlgo("FIN");*/
+
+
+        /*Vamos a juego adivinar*/
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+.banner__titulo{
+    position: absolute;
+    top:50%; /*Esta en una posicion 50% por debajo del tope del contenedor (en este caso esta 50% por debajo del inicio de la imagen)*/
+    transform: translate(0, -50%);/*Con esto mueve el texto 50% para aarriba desde su eje de coordenadas.En este caso mueve la distancia de la mitad del objeto (gracias al 50%) hacia arriba.*/
+    text-align: center;
+
+    width: 100%;/*Hace que el contenedor del texto mida todo el ancho de la pantalla. Se puede comprobar poniendole un color de fondo para identificarlo.*/
+    
+
+    color: #fdfdfd;
+    font-family:Pacifico,cursive;
+    /* font-size:5.0625rem; */
+
+   
+    
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.75);
+    
+    
+}
+
+@media screen and (min-width:0){
+    .banner__titulo{
+        font-size:3rem;
+    }
+}
+
+@media screen and (min-width:768px){
+    .banner__titulo{
+        font-size:5.0625rem;
+    }
+}

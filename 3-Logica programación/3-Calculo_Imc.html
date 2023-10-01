@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function saltolinea() {
+            document.write("<br><br><br>");
+
+        }
+
+        function imprimirAlgo(frase){
+            document.write(frase);
+        } /*Para poder invocar imprimirAlgo("Escribir cual cosa aquí dentro"), tenemos que declarar que document.write() va a tener adentro una variable 'frase'. Y que a su vez, la funcion imprimirAlgo reciba como parametro una variable frase. Ahora todo lo que escribamos dentro de imprimirAlgo(), va a ser tambien 'frase' y se acciona la funcion imprimiendo el texto como un document.write.*/
+
+        
+
+       /*Para calcular IMC*/
+       function calcularImc(/*nombre, */peso, altura){ 
+            imcCalculo = peso/(altura*altura);
+            return imcCalculo; /*Para que me devuelva el resultado y utilizarlo cada vez que llame la funcion*/
+            /*imprimirAlgo("El IMC de "+nombre+" es de: "+imcCalculo);*/
+        }  /*Puse nombre en los parametros de la funcion, para que cuando se llame a esta funcion, pongas primero el nombre de la persona a la que se quiere calcular el IMC.*/
+
+
+        /*Calculo IMC      peso/(altura^2) */
+
+        /* var pesoAgus = 50;
+        var alturaAgus = 1.65; Las he comentado para optimizar el codigo, ya que lo puedo declarar abajo en el calcularImc(valor1,valor2).*/
+       /* var imcCalculo = peso/(altura^2); Lo he comentado porque ya lo he puesto en la function.*/
+     /* calcularImc(pesoAgus, alturaAgus); Ya no hace falta poner el nombre de las variables. Es suficiente con poner los numeros que se quieren asignar en el calcularImc(valor1, valor2). */
+       var imcAgus= calcularImc(50, 1.65);
+        
+        var imcVivi= calcularImc(55, 1.60);
+         
+        var imcRony= calcularImc(70, 1.70);
+         
+         
+        imprimirAlgo("El IMC promedio de Agustin, Vivi y Rony es de "+((imcAgus+imcVivi+imcRony)/3));
+ 
+         /*Recordar:  la función está preparada para recibir los parámetros que hemos decidido, entonces cuando sea llamada necesitamos pasar esos parámetros. En la declaración de la función, podemos escoger cualquier nombre para los parámetros, pero necesitamos usar esos nombres en los bloques de la función.*/
+         saltolinea();
+     </script>
+ 
+     <section>
+         <h2>Calculo IMC interactivo</h2>
+         <p>Para calcularlo, pon los valores a continuacion.</p>
+         <br>
+         <p>Ingrese su nombre <input type="text" id="nombre">, su peso <input type="number" id="peso"> y su altura <input type="number" id="altura">.<br><input type="button" value="Calcular" onclick="calcular();"></p>
+         
+    </section>
+     <script>
+         function calcular(){
+            var nombreEsp = document.getElementById('nombre').value;
+            var pesoEsp = parseInt(document.getElementById('peso').value);
+            var alturaEsp = parseFloat(document.getElementById('altura').value);
+            var imcFinal;
+
+ 
+            imcFinal= parseFloat((pesoEsp/(alturaEsp*alturaEsp)));
+            alert(nombreEsp+", si su peso es de "+pesoEsp+" kg y su altura es de "+alturaEsp+"m. Entonces, su Imc es de "+imcFinal);
+             
+         }
+
+    </script>
+
+    <!-- Ahora lo voy a hacer con prompt y condicional -->
+    <script>
+        var tuNombre = prompt("Ingrese su nombre.")
+        var tuPeso = parseInt(prompt("Ingrese su peso."));
+        var tuAltura = parseFloat(prompt("Ingrese su altura."));
+        var imcCalculado;
+        
+        imcCalculado= parseFloat((tuPeso/(tuAltura*tuAltura)));
+        imprimirAlgo(tuNombre+", si su peso es de "+tuPeso+" kg y su altura es de "+tuAltura+"m. Entonces, su Imc es de "+imcCalculado);
+        saltolinea();
+
+
+        if(imcCalculado<18.5){
+            imprimirAlgo("Su peso está por debajo del valor normal. Debería tener un IMC mayor a 18.5. Coma un poco mas");
+        }
+        if(imcCalculado>=18.5 && imcCalculado<25){
+            imprimirAlgo("Su IMC está entre los valores normales. Siga cuidandose.");
+        }
+        if(imcCalculado>=25 && imcCalculado<30){
+            imprimirAlgo("Su IMC está por encima de los valores normales. Padece de sobrepeso y preobesidad.");
+        }
+        if(imcCalculado>=25){
+            imprimirAlgo("Su IMC está muy por encima de los valores normales. Padece de obesidad. Cuidarse debe ser su prioridad");
+        }
+        if(imcCalculado>60){
+            imprimirAlgo("Por favor, ingrese valores posibles");
+        }
+        else{
+            imprimirAlgo("Por favor, ingrese valores posibles");
+        }
+    </script>
+</body>
+</html>

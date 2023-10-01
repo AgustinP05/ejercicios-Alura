@@ -1,0 +1,53 @@
+package ar.com.collectionsprac;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import ar.com.collectionsprac.model.Alumno;
+import ar.com.collectionsprac.model.Cursada;
+
+public class ejemplo8 {
+	public static void main(String[] args) {
+		
+		Alumno alumno1 = new Alumno("Agustin Perea", "001");
+		Alumno alumno2 = new Alumno("Joel Miller", "002");
+		Alumno alumno3 = new Alumno("Leon Kennedy", "003");
+		Alumno alumno4 = new Alumno("Lara Croft", "004");
+		Alumno alumno5 = new Alumno("Rick Sanchez", "005");
+		Alumno alumno6 = new Alumno("Peter Parker", "006");
+		Alumno alumno7 = new Alumno("Eric Cartman", "007");
+		Alumno alumno8 = new Alumno("John Marston", "008");
+		
+		
+		
+		Collection<Alumno> listaAlumnos = new HashSet<>() ;//HashSet es un equivalente de ArrayList.
+	
+		listaAlumnos.add(alumno1);
+		listaAlumnos.add(alumno2);
+		listaAlumnos.add(alumno3);
+		listaAlumnos.add(alumno4);
+		listaAlumnos.add(alumno5);
+		listaAlumnos.add(alumno6);
+		listaAlumnos.add(alumno7);
+		listaAlumnos.add(alumno8);
+	/*	
+		for(Alumno alumno : listaAlumnos) {
+			System.out.println(alumno);
+		}
+	*/
+		
+		//Si nosotros creamos un nuevo alumno con los mismos datos que alguno ya creado, queremos que el programa reconozca que es la misma persona
+		//Pero java ve que pertenecen a dos referencias de memoria diferentes.
+		Alumno alumnoNuevo = new Alumno("John Marston", "008");
+		System.out.println(listaAlumnos.contains(alumnoNuevo));//Retorna false aunque la lista tenga un alumno con los mismos datos
+		System.out.println(alumno8.equals(alumnoNuevo));//Tambien retorna false porque son diferentes
+		
+		
+	}
+}

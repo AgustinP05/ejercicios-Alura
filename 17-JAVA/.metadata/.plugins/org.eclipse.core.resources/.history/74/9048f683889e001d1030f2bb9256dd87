@@ -1,0 +1,97 @@
+package ar.com.bytebank.test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import ar.com.bytebank.modelo.Cliente;
+import ar.com.bytebank.modelo.Cuenta;
+import ar.com.bytebank.modelo.CuentaAhorros;
+import ar.com.bytebank.modelo.CuentaCorriente;
+
+public class TestLambda {
+	public static void main(String[] args) {
+		
+		//Codigo Cuenta para ejercicio:
+		Cuenta cc1 = new CuentaCorriente(33, 33);
+		Cliente clienteCC1 = new Cliente();
+		clienteCC1.setNombre("Nico");
+		cc1.setTitular(clienteCC1);
+		cc1.depositar(333.0);
+
+		Cuenta cc2 = new CuentaAhorros(11, 44);
+		Cliente clienteCC2 = new Cliente();
+		clienteCC2.setNombre("Guilermo");
+		cc2.setTitular(clienteCC2);
+		cc2.depositar(444.0);
+
+		Cuenta cc3 = new CuentaCorriente(22, 11);
+		Cliente clienteCC3 = new Cliente();
+		clienteCC3.setNombre("Paulo");
+		cc3.setTitular(clienteCC3);
+		cc3.depositar(111.0);
+
+		Cuenta cc4 = new CuentaAhorros(44, 22);
+		Cliente clienteCC4 = new Cliente();
+		clienteCC4.setNombre("Ana");
+		cc4.setTitular(clienteCC4);
+		cc4.depositar(222.0);
+
+		List<Cuenta> lista = new ArrayList<>();
+		lista.add(cc1);
+		lista.add(cc2);
+		lista.add(cc3);
+		lista.add(cc4);
+		/////////////////
+		
+		//Ordenar por numero con Comparator
+		class NumeroDeCuentaComparator implements Comparator<Cuenta>{//Esta es una interfaz que tenemos que implementar si o si. Viene de java.util.
+			@Override
+			public int compare(Cuenta o1, Cuenta o2) { //Viene por la interfaz Comparator
+				//Forma  basica
+				if(o1.getNumero() == o2.getNumero()) {
+					return 0;
+				}else if(o1.getNumero() > o2.getNumero()) {
+					return 1;//si o1 es mayor que o2 -->retorna algo Positivo
+				}else {
+					return -1;//si o1 es menor que o2 -->retorna algo negativo
+				}
+				//Java cuando aplica el compare, va a ir ordenando internamente los elementos segun lo que vayan dando en estas condiciones recien mostradas 
+				
+				//Forma intermedia
+				//Tambien estas lineas se puede hacer resumidamente con la siguiente linea ya que es la misma logica. Si los dos son iguales la resta da 0, si el primero es mayor, queda positivo y sino negativo.
+				//return o1.getNumero() - o2.getNumero();
+				
+				//Forma Wrapper
+				//return Integer.compare(o1.getNumero(), o2.getNumero());//Se puede hacer de diversas formas, esta es con wrapper. Utilice la funcion compare para determinar que quiero comparar las cuentas por numero, dentro de los parametros del compare, el menor está primero.
+							// este compare viene del wrapper
+			}				
+		}
+				//Forma anonima  ()
+		lista.sort(new Comparator<Cuenta>() {
+
+			@Override
+			public int compare(Cuenta o1, Cuenta o2) {
+				// TODO Auto-generated method stub
+				return Integer.compare(o1.getNumero(), o2.getNumero());
+			}
+		});
+		
+		
+		for(Cuenta cuenta : lista) {//ForEach para mostrar el numero de cuentas antes de ordenarlas
+			System.out.println(cuenta.getNumero());
+		}
+	
+		
+		//Si queremos ordenar una lista con el comparador hecho, tenemos que instanciarlo dentro del parametro del metodo sort(), seleccionando primero la lista que queramos ordenar
+		NumeroDeCuentaComparator comparator = new NumeroDeCuentaComparator();
+		lista.sort(comparator);//sort recibe como parametro una implementacion de la interfaz Comparator, en la cual se ejecuta el metodo compare() sobreescrito en la clase. Ese metodo compare tendrá la logica para ordenar los elementos, ya sea ascendente o descendente.
+		
+		System.out.println("-----------");
+		
+		for(Cuenta cuenta : lista) {//ForEach para mostrar todas las cuentas
+			System.out.println(cuenta.getNumero());
+		}//vemos que se ordenaron por numero correctamente
+	
+		
+	}
+}

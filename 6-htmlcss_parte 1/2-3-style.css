@@ -1,0 +1,157 @@
+header{
+    background-color: #BBBBBB;
+    padding: 20px 0;
+}
+
+.caja{
+    width: 75%;
+    position: relative;
+    margin: 0 auto;
+}
+
+nav{
+    position: absolute;
+    top:110px;
+    right: 0;
+}
+
+nav li{ /*Para todas las li dentro de un nav*/
+    display: inline;/*Para que dejen de estar en bloque y que esten inline*/
+    margin: 0 0 0 15px;
+}
+nav a{/*Todas las a dentro de un nav*/
+    text-transform: uppercase;/*Transformar letras a mayusculas*/
+    color: #000000;
+    font-weight: bold;/*Negrita*/
+    font-size: 22px;/*tamaño*/
+    text-decoration: none;/*Retirar subrrayado por defecto de los vinculos*/
+}
+
+
+nav a:hover{/*Al capturar el hover del a dentro del nav, va a cambiar el color*/
+    color: #c78c19;
+    text-decoration: underline;
+}
+
+
+.productos{
+    width: 75%;
+    position: relative;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+/*Inline: Pone las cajas en linea pero solo ocupando el tamaño del objeto.
+Inline-Block: Los pone en linea y SI se puede modificar el tamaño y las propiedades de los elementos.*/
+.productos li{/*Seleccionar los li dentro de .productos*/
+    display: inline-block;
+    text-align: center;
+    width: 30%;/*Para que cada li me ocupe el 30% del espacio del contenedor*/
+    vertical-align: top; /*Se alineen con la linea de arriba*/
+    margin:0 1.5% ;
+    padding: 30px 25px;
+    box-sizing: border-box;/*El borde de cada item, será el limite del espacio que va a ser definido. Sino, el elemento aumentaria su largura y soberpasaria el ancho. Es decir, con esta propiedad activa, en este caso los 20px del ancho del padding, no van a sobrepasar el 30% del width de los li. 
+    Con el padding normal, el elemento contenedor aumentaria su tamaño porque al decir que hay mas espacio interno, aumenta su contenido.*/
+
+    border: 2px solid #000000;
+    border-radius: 15px 15px 55px 55px;
+
+    /*background: #CCCCCC;*/ /*Para probar*/
+}
+
+.productos li:hover{/*hover del li*/
+
+    border-color: #c78c19;
+
+}
+
+.productos li:active{/*Cuando le hago click al li*/
+    border-color: #088c19;
+}
+
+
+.productos h2{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.productos li:hover h2{/*Cuando se haga hover por cualquier parte de li, el h2 se modificara con lo siguiente*/
+    font-size: 33px;
+}
+
+.descripcion{
+    font-size: 18px;
+}
+.precio{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+footer{
+    padding: 2.5% 0;
+    text-align: center;
+
+    font-size: 13px;
+    color: #FFFFFF;
+    background: url(imagenes/bg.jpg);
+    
+}
+
+/*3----------------*/
+
+/* main{
+    width: 70%;
+    margin: 0 auto;
+} */
+
+form{
+    margin: 4% 0;
+}
+
+form label, form legend{
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.input-padron{
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px 25px;
+    width: 50%;
+}
+
+.enviar{
+    width: 40%;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: orange;
+    border: none;
+    border-radius: 5px;
+
+    transition: .5s all;
+    cursor: pointer;
+}
+
+.enviar:hover{
+    background: #3d3c3c;
+    transform: scale(1.2);
+    /*Podria usar dentro de transform el rotate(n deg) para girar tantos grados el eelemento*/
+}
+
+table{
+    margin: 40px 40px;
+}
+thead{
+    background: #555555;
+    color: white;
+    font-weight: bold;
+}
+th,td{
+    border: 1px solid #000000;
+    padding: 8px 15px;
+}

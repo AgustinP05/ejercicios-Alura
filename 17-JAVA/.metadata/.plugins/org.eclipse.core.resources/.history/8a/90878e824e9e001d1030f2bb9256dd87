@@ -1,0 +1,134 @@
+package ar.com.bytebank.test;
+
+import java.util.ArrayList;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import ar.com.bytebank.modelo.*;
+
+public class OrdenarLista {
+	public static void main(String[] args) {
+		/*
+		  Existen dos interfaces para definir los criterios para ordenar los elementos de una lista.
+		  - java.lang.Comparable -> Para definir el orden natural de los elementos. Es el orden definido por el propio elemento de la lista.
+			Por ejemplo se puede definir sus propios criterios de ordenación implementando la interfaz java.lang.Comparable.
+			
+		  - java.util.Comparator -> El comparator es un parámetro del método sort de la lista y de la clase Collections.
+		    
+		   */
+		
+		
+		//Ordenar con Arrays (Recordar Arrays con 's' al final)  y tenemos que importar Arrays de java.util.
+		//Es similar a Collections ya que tambien une varios metodos utiles.
+		//Ejemplo:
+	/*	int[] numeros = new int[]{35, 25, 10, 20, 5, 30, 15};
+		Arrays.sort(numeros);//Ordena los numeros de menor a mayor
+		System.out.println(Arrays.toString(numeros));//Los convierte a String
+	*/	/////////////////////////////////////////////////////////////////////
+		
+		
+		//Codigo Cuenta para ejercicio:
+		Cuenta cc1 = new CuentaCorriente(22, 33);
+		Cliente clienteCC1 = new Cliente();
+		clienteCC1.setNombre("Nico");
+		cc1.setTitular(clienteCC1);
+		cc1.depositar(333.0);
+
+		Cuenta cc2 = new CuentaAhorros(22, 44);
+		Cliente clienteCC2 = new Cliente();
+		clienteCC2.setNombre("Guilermo");
+		cc2.setTitular(clienteCC2);
+		cc2.depositar(444.0);
+
+		Cuenta cc3 = new CuentaCorriente(22, 11);
+		Cliente clienteCC3 = new Cliente();
+		clienteCC3.setNombre("Paulo");
+		cc3.setTitular(clienteCC3);
+		cc3.depositar(111.0);
+
+		Cuenta cc4 = new CuentaAhorros(22, 22);
+		Cliente clienteCC4 = new Cliente();
+		clienteCC4.setNombre("Ana");
+		cc4.setTitular(clienteCC4);
+		cc4.depositar(222.0);
+
+		List<Cuenta> lista = new ArrayList<>();
+		lista.add(cc1);
+		lista.add(cc2);
+		lista.add(cc3);
+		lista.add(cc4);
+		/////////////////
+		
+		//Ordenar por numero con Comparator
+		class NumeroDeCuentaComparator implements Comparator<Cuenta>{//Esta es una interfaz que tenemos que implementar si o si. Viene de java.util.
+			@Override
+			public int compare(Cuenta o1, Cuenta o2) { //Viene por la interfaz Comparator
+				//Aclaracion sobre como ordena
+				if(o1.getNumero() == o2.getNumero()) {
+					return 0;
+				}else if(o1.getNumero() > o2.getNumero()) {
+					return 1;//si o1 es mayor que o2 -->retorna algo Positivo
+				}else {
+					return -1;//si o1 es menor que o2 -->retorna algo negativo
+				}
+				//Java cuando aplica el compare, va a ir ordenando internamente los elementos segun lo que vayan dando en estas condiciones recien mostradas 
+				
+				
+				
+				//return Integer.compare(o1.getNumero(), o2.getNumero());//Se puede hacer de diversas formas, esta es con wrapper. Utilice la funcion compare para determinar que quiero comparar las cuentas por numero, dentro de los parametros del compare, el menor está primero.
+			}				// este compare viene del wrapper
+		}
+		
+		for(Cuenta cuenta : lista) {//ForEach para mostrar el numero de cuentas antes de ordenarlas
+			System.out.println(cuenta.getNumero());
+		}
+		
+		//Si queremos ordenar una lista con el comparador recien hecho, tenemos que instanciarlo dentro del parametro del metodo sort(), seleccionando primero la lista que queramos ordenar
+		NumeroDeCuentaComparator comparator = new NumeroDeCuentaComparator();
+		lista.sort(comparator);//sort recibe como parametro una implementacion de la interfaz Comparator, en la cual se ejecuta el metodo compare() sobreescrito en la clase. Ese metodo compare tendrá la logica para ordenar los elementos, ya sea ascendente o descendente.
+		
+		System.out.println("-----------");
+		
+		for(Cuenta cuenta : lista) {//ForEach para mostrar todas las cuentas
+			System.out.println(cuenta.getNumero());
+		}//vemos que se ordenaron por numero correctamente
+	
+		
+		//Ordenar por nombre, es decir, por String
+	/*	class TitularDeCuentaComparator implements Comparator<Cuenta>{//Tambien queremos comparar Cuentas
+			@Override
+			public int compare(Cuenta o1, Cuenta o2) {
+				String nom1 = o1.getTitular().getNombre();
+				String nom2 = o2.getTitular().getNombre();
+				return nom1.compareTo(nom2); 
+			}			//metodo compareTo viene de Comparable, que es implementado por String
+		}
+		
+		for(Cuenta cuenta : lista) {//ForEach para mostrar el nombre de cuentas antes de ordenarlas
+			System.out.println(cuenta.getTitular().getNombre());
+		}
+		
+		//lista.sort(new TitularDeCuentaComparator());//Lo hicimos mas resumido que el ejemplo anterior
+		Collections.sort(lista, new TitularDeCuentaComparator());//Tambien podemos hacer lo mismo que la linea de arriba pero directamente con Collections
+		
+		System.out.println("------------");
+		for(Cuenta cuenta : lista) {//ForEach para mostrar el nombre de cuentas antes de ordenarlas
+			System.out.println(cuenta.getTitular().getNombre());
+		}
+	*/	
+		
+		//Ordenar naturalmente --> Para esto, la clase de lo que queremos ordenar (es decir, Cuenta) tiene que implementar la interfaz Comparable y nos obligará a utilizar el metodo compareTo() y le daremos nuestra logica.
+	/*	
+		//En este punto hemos implementado Comparable a Cuenta, y por lo tanto nos obligó a implementar el metodo compareTo() a sus hijas CuentaCorriente, CuentaAhorros, etc.
+		
+		Collections.sort(lista);
+		
+		for(Cuenta cuenta : lista) {//ForEach para mostrar el nombre de cuentas antes de ordenarlas
+			System.out.println(cuenta.getTitular().getNombre());
+		}
+	*/
+	}
+}

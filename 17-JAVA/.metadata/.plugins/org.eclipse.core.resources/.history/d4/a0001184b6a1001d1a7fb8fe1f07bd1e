@@ -1,0 +1,30 @@
+package ar.com.collectionsprac.model;
+
+public class Alumno{
+	private String nombre;
+	private String codigo;
+	
+	public Alumno(String nombre){
+		this.nombre = nombre;
+	}
+	
+	
+	//Setters y getters
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	///////////
+	
+	
+	//Metodo sobreescrito para que retorne el nombre y no el hash
+		@Override
+		public String toString() {
+			return (this.nombre+ " - "+this.codigo);
+		}
+
+}

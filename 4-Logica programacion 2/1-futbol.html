@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Calculular puntos de equipo de futbol</h1>
+
+    <script>
+         function saltolinea() {
+            document.write("<br><br><br>");
+
+        }
+
+        function imprimirAlgo(frase){
+            document.write(frase);
+        } /*Para poder invocar imprimirAlgo("Escribir cual cosa aquí dentro"), tenemos que declarar que document.write() va a tener adentro una variable 'frase'. Y que a su vez, la funcion imprimirAlgo reciba como parametro una variable frase. Ahora todo lo que escribamos dentro de imprimirAlgo(), va a ser tambien 'frase' y se acciona la funcion imprimiendo el texto como un document.write.*/
+        
+        /*
+        var victorias= prompt("Indique la cantidad de victorias."); 
+        var empates= prompt("Indique la cantidad de empates.");
+        var puntosTotales = ((victorias*3)+empates);
+        alert("Los puntos totales son: "+puntosTotales); */
+
+        /*Normalmente, prompt() nos devuelve un string. Entonces, tenemos que usar parseInt() para indicar que nos devuelva un numero entero. Sino, las cuentas no van a resultar bien.
+        Lo que sucede aqui entonces, es que JS esta sumando el string dado en 'victorias' y el string dado en 'empates'.
+        La cuenta hizo lo siguiente.
+            victorias * 3 + empates 
+            "7" * 3 + "2"   
+            21      + "2"
+            "21"2
+            Cuando multiplicamos o dividimos un string con algun numero (No string); JS nos da como resultado un numero. Pero al sumar o restar un string con un No string, simplemente hace una concadenacion y las junta como si estuviesen en una oracion.
+            
+            Ahora lo voy a hacer con parseInt()
+            */
+
+        var victorias= parseInt(prompt("Indique la cantidad de victorias.")); 
+        var empates= parseInt(prompt("Indique la cantidad de empates."));
+        var puntosTotales = ((victorias*3)+empates);
+        imprimirAlgo("Los puntos totales son: "+puntosTotales);
+        /*El resultado es correcto :) */
+        saltolinea();
+
+        /*Ahora voy a usar condicionales para ver si mi equipo hizo mas o menos puntos que el año pasado. Suponiendo que el año pasado se hicieron 28 puntos.*/
+
+        if(puntosTotales>28){
+            imprimirAlgo(" El equipo esta mejor que el año pasado. Se logró superar la cantidad de puntos por "+ (puntosTotales-28)+" ptos.");
+        } 
+        if(puntosTotales<28){
+            imprimirAlgo(" El equipo esta peor que el año pasado. Se quedó atrás por "+ (28-puntosTotales)+" ptos.");
+        }
+        if(puntosTotales==28){
+            imprimirAlgo(" El equipo consiguió la misma cantidad de puntos que el año pasado.");
+        }
+        else{
+            imprimirAlgo("No ha ingresado valores validos");
+        }
+
+
+        /*Volveré al programa del Imc para mejorarlo.*/
+
+    </script>
+</body>
+</html>

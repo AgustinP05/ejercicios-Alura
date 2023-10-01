@@ -1,0 +1,126 @@
+/*1-Header*/
+.headerPrincipal .container{ /*Contedor dentro de header*/
+    display: flex;          /*Para que se comporte como flex*/
+    align-items: center;  /*Centrar verticalmente los  objetos internos */
+    justify-content: space-between;/*Separar los objetos entre ellos*/
+}
+
+.headerPrincipal-nav{/*nav dentro de contenedor dentro de header*/
+    display: flex;
+}/*Ya lo separamos y centramos verticalmente en el contenedor padre. Cada li tiene un margin en la izquierda dado en el archivo style.css.*/
+
+/*2-Mapa de cursos y footer*/
+.rodapePrincipal-navMap-list{
+    display:flex;
+    flex-direction: column;
+    height: 260px;
+    flex-wrap: wrap; /*Quebrar la columna en el alto de su contenedor padre*/
+}
+
+.rodapePrincipal-patrocinadores .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rodapePrincipal-patrocinadores-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+}
+
+.rodapePrincipal-contatoForm-fieldset{
+    display: flex;
+}
+
+
+/*3-Nuestros cursos*/
+.contenidoPrincipal-cursos{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contenidoPrincipal-cursos-link{
+    display: flex;
+    width: 23%;
+    
+}
+
+/*Seccion video*/
+.videoSobre .container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.videoSobre-video{
+    flex-shrink: 2;
+}
+
+.videoSobre-sobre{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.videoSobre-sobre-list{
+    flex-grow: 2;
+}
+
+/*Responsive*/
+
+@media (max-width:768px){
+    /*Header*/
+    .headerPrincipal .container{
+        flex-direction: column;
+        align-items: initial;
+        text-align: center;
+    }
+
+    .headerPrincipal-nav{
+        flex-direction: column;
+    }
+
+    .headerPrincipal-nav-link-app{
+        order: -1;
+    }
+
+    /*Nuestros Cursos*/
+    .contenidoPrincipal-cursos{
+        flex-direction: column;
+    }
+
+    .contenidoPrincipal-cursos-link{
+        width: 100%;
+    }
+
+    /*Seccion video*/
+    .videoSobre .container{
+        flex-direction: column;
+    }
+
+    /*Mapa de cursos*/
+    .rodapePrincipal-navMap .rodapePrincipal-navMap-list{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        height: auto;
+    }
+
+    /*footer*/
+    .rodapePrincipal-patrocinadores .container{
+        flex-direction: column;
+    }
+
+    .rodapePrincipal-patrocinadores-list{
+        width: 100%;
+        align-items: center;
+    }
+
+    .rodapePrincipal-contatoForm{
+        justify-content: center;
+    }
+
+    .rodapePrincipal-contatoForm-fieldset{
+        justify-content: center;
+    }
+}

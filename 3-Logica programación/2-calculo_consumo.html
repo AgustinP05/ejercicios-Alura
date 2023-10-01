@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>¿Alcohol o gasolina?</h3>
+
+    <script>
+        /*function se suele poner arriba de todo en el script. Acá le puse nombre saltolinea y los parentesis estan vacios porque no tiene ningun parametro.*/
+        function saltolinea() {
+            document.write("<br><br><br>");
+
+        }
+
+        function imprimirAlgo(frase){
+            document.write(frase);
+        } /*Para poder invocar imprimirAlgo("Escribir cual cosa aquí dentro"), tenemos que declarar que document.write() va a tener adentro una variable 'frase'. Y que a su vez, la funcion imprimirAlgo reciba como parametro una variable frase. Ahora todo lo que escribamos dentro de imprimirAlgo(), va a ser tambien 'frase' y se acciona la funcion imprimiendo el texto como un document.write.*/
+
+        
+        /*Gasolina*/
+       /* var saltolinea="<br><br><br>"; Cuando lo declare con un document.write, voy a hacer 3 <br> automaticamente en el script.
+        Tambien lo puedo hacer con la function que hice arriba*/
+
+        var numeroLitros=40; 
+        var numeroKilometros=480;
+        var resultadoGasolina;
+        resultadoGasolina=(numeroKilometros/numeroLitros);
+        document.write("Si un carro tiene un tanque de "+ numeroLitros + "litros de gasolina. Y se le vacía en "+numeroKilometros+". El consumo de gasolina por Km recorrido es de: "+resultadoGasolina+".");
+        
+        /*document.write(saltolinea); Lo puedo hacer con la function de arriba. Entonces pongo:*/
+        saltolinea();
+        saltolinea();  /*La function hace la acción que se le ha dado. Cada una hace 3 <br>.*/
+
+        /*Alcohol*/
+        var alcoholLitros=40;
+        var alcoholKilometros=300;
+        var resultadoAlcohol;
+        resultadoAlcohol=(alcoholKilometros/alcoholLitros);
+        document.write("Si un carro tiene un tanque de "+ alcoholLitros + "litros de gasolina. Y se le vacía en "+alcoholKilometros+". El consumo de gasolina por Km recorrido es de: "+resultadoAlcohol+".");
+
+        saltolinea();
+
+        imprimirAlgo("Hola.Esto es un texto de prueba. Funciona bien."); /*Puedo utilizar imprimirAlgo() en lugar de document.write().*/
+        saltolinea();
+
+
+       
+    </script>
+
+</body>
+</html>

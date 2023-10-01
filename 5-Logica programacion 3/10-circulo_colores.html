@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas width="600" height="400"> </canvas>
+
+    <script>
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");    
+        pincel.fillStyle = "grey";
+        pincel.fillRect(0,0,600,400); //Hasta aca se ha declarado el lienzo gris
+
+        var colores=["blue","red","green"]; //Este array es para definir los colores en el codigo
+        var colorEspañol=["Azul", "Rojo", "Verde"] //Este array solo lo voy a utilizar para que imprima el color traducido al español en la consola. No tiene fin practico, solo es para la consola.
+        var posicion=0;//La posicion dentro del array comienza en 0 por defecto.
+
+       
+
+        function dibujarCirculo(evento){ //Para dibujar circulo
+            var x = evento.pageX - pantalla.offsetLeft;//El navegador va a agarrar la coordenada en X del evento. evento es donde hago click, y se pone en el parametro porque lo que doy click le puse nombre evento y va a depender siempre de en que lugar hago click. A esta coordenada tomada del objeto evento, le voy a restar lo que sobre del viewport(fondo blanco), Para que tome las coordenadas desde el comienzo del lienzo gris nada mas.
+            var y = evento.pageY - pantalla.offsetTop;//idem con Y.    
+            pincel.fillStyle = colores[posicion];//Defino el color con array en su posicion actual.
+            pincel.beginPath();
+            pincel.arc(x,y,10,0,2*3.14);
+            pincel.fill();//Caracteristicas del circulo, dibujarlo y darle color correspondiente.
+            console.log(x + "," + y +" "+colorEspañol[posicion]);//Imprimir en consola las coordenadas y el color pero en español.       
+        }
+        pantalla.onclick = dibujarCirculo; //Para que cuando haga click izquierdo, se ejecute la function.
+
+
+
+
+        function cambiarColor() {
+            posicion++; //Para que cada vez que se ejecute la function,la posicion sume 1.
+           
+            if(posicion>(colores.length-1)){
+                posicion=0;
+            }//si la posicion es mayor que el numero objetos dentro del array-1, vuelve a 0 automaticamente. Le resto 1 porque el .length cuenta los objetos partiendo del numero 1, es decir cuenta 3 objetos. Y las posiciones del array se cuentan desde el 0, es decir 0 1 2. Asi que le tengo que restar 1 al .length para que concuerde con la posicion. Con este .length-1, puedo poner los colores que quiera sin tener que modificar la condicion este if. Tambien pude haber puesto if(posicion>=colores.length) para que cuando posicion llegue a 3 entre al if, pero esta vez lo hice con el -1 para el ejemplo y tomar en cuenta esa caracteristica del .length.
+            
+            console.log("Accediste al color "+colorEspañol[posicion]);//Imprimir en consola el color actual en español
+            return false;//Para que no retorne el menu cuando se de el click derecho.
+            
+        }
+
+        pantalla.oncontextmenu = cambiarColor;// Al dar click derecho, se ejecutara la function.
+
+
+        
+
+    </script> 
+</body>
+</html>

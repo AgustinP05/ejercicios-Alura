@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Juego de adivinanza</h1>
+    <script>
+          function saltolinea() {
+            document.write("<br><br><br>");
+
+        }
+
+        function imprimirAlgo(frase){
+            document.write(frase);
+        } /*Para poder invocar imprimirAlgo("Escribir cual cosa aquí dentro"), tenemos que declarar que document.write() va a tener adentro una variable 'frase'. Y que a su vez, la funcion imprimirAlgo reciba como parametro una variable frase. Ahora todo lo que escribamos dentro de imprimirAlgo(), va a ser tambien 'frase' y se acciona la funcion imprimiendo el texto como un document.write.*/
+        
+        
+        // var numeroPensado=5;
+        var numeroPensado= Math.round(Math.random()*10); /* Le estamos diciendo a Js que nos devuelva un numero random multiplicado por 10 para que este entre 0 y 10. Y que ademas este reondeado al entero mas cercano.*/
+        var intentos=3;
+        var numCont=1;
+
+        /*Mejorado con while para darle intentos*/
+        while(numCont<=intentos){
+
+            var numeroIngresado= parseInt(prompt("Ingrese un numero entre 0 y 10."))
+
+            if (numeroPensado == numeroIngresado){
+                alert("Ha ganado!. La respuesta era "+numeroPensado +". Encontrado en el intento "+numCont);
+                numCont=0; /*Para que si ganaste, el juego vuelva a empezar.*/
+                /*En este lugar podria poner un 'break' para que salga del while si se llega a esta instancia. Pero yo por ahora quiero que el juego siga hasta que pierdas 3 veces. */
+            } /*si no pasa esto, sucede lo que hay en el else*/
+            else{
+                alert("Ha perdido. Imbecil!!! ");
+                
+            }
+            numCont++;
+            saltolinea();
+            
+        }
+            if(numCont>intentos){
+            imprimirAlgo("La respuesta fue "+numeroPensado);
+            saltolinea(); 
+             }
+        
+        
+        /*
+        if (numeroPensado != numeroIngresado){
+            imprimirAlgo("Ha perdido. La respuesta era "+numeroPensado);
+        }
+         el '!=' (signo exclamacion y el igual)significa 'diferente'.
+         En lugar de hacer un if para hacer esa condiciones de 'diferente', puedo utilizar un 'else'.*/
+
+        /* Si yo quiero que el numero pensado sea aleatorio. Podria utilizar:
+        Math.random();     que te devuelve un numero decimal entre 0 y 1.
+        Math.random()*10;  Para que los valores decimales sean entre 0 y 10.
+        Math.round();      Redondea al entero mas cercano. Entonces: 
+        Math.round(Math.random()*10);*/
+
+
+
+
+        
+        /*Comprobar si puedes conducir*/
+        /*
+        var edad = parseInt(prompt("¿Cuál es tu edad?"));
+        var tieneLicencia = prompt("¿Tienes licencia? Responde S o N");*/
+        /* Hecho con if dentro de if.
+        if(edad>=18){
+            imprimirAlgo("Tienes "+edad+" años. ");
+            
+            if(tieneLicencia=="S" || tieneLicencia=="s"){
+                imprimirAlgo("Y ademas tienen licencia. Asi que puedes conducir. Buena suerte.")
+            } else{
+                imprimirAlgo("Pero por desgracia, no tienes licencia. Largo de aquí!!!")
+            }
+
+        } else{
+            imprimirAlgo("Si no tienes 18 años o mas, ni siquiera deberias estar aquí. Largate a jugar Need for Speed !!!");
+        }
+            */
+
+           /*Hecho con &&. Pero para este ejercicio en puntual. Me gustó mas como es con el if dentro de if. Pero el ejercicio ya esta aprobado solo con decir si puede conducir o no. */
+        /*    if((edad>=18) && (tieneLicencia=="S" || tieneLicencia=="s") ){
+            imprimirAlgo("Tienes "+edad+" años. Y ademas tienen licencia. Asi que puedes conducir. Buena suerte.  ");
+            } else{
+                imprimirAlgo("Si no tienes 18 años o mas, ni siquiera deberias estar aquí. Largate a jugar Need for Speed !!!");
+            } */
+    </script>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function saltolinea() {
+            document.write("<br><br>");
+
+        }
+
+        function imprimirAlgo(frase){
+            document.write(frase);
+        } 
+
+
+        var inicioDeSesionRegistrado = "alura";
+        var contrasenhaRegistrada = "alura321";
+
+        
+        var intentoActual=1;
+        var maximoIntento=3;
+
+
+    while(intentoActual<=maximoIntento){
+
+      var inicioDeSesionIngresado = prompt("Ingrese su usuario");
+      var contrasenhaIngresada = prompt("Ingrese su contraseña");
+
+      if( inicioDeSesionRegistrado == inicioDeSesionIngresado && contrasenhaRegistrada == contrasenhaIngresada ) {
+        alert("Bienvenido al sistema " + inicioDeSesionIngresado);
+        
+        } else {
+
+            if(intentoActual==maximoIntento){
+                alert("No le quedan mas intentos");
+                intentoActual++;
+            }else{
+               alert("inicio de sesión inválido. Favor intente de nuevo. Es su "+intentoActual+ "°. Le quedan "+(maximoIntento-intentoActual)+" intento(s)."); 
+            }
+            
+        }  
+
+        intentoActual++;
+        
+    }
+
+    if (intentoActual>maximoIntento) {   
+     imprimirAlgo("MALDITO. VOY A LLAMAR A LA POLICIA!!!");  
+
+    }
+
+        
+
+    </script>
+</body>
+</html>

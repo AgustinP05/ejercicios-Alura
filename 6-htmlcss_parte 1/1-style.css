@@ -1,0 +1,200 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+/*Encabezado*/
+
+.tituloPrincipal{
+    padding-left: 30px;
+}
+
+
+.banner{
+    width: 100%;
+    
+}
+
+/*Principal*/
+
+.principal{
+    /* background: #CCC; */
+    padding: 20px;/*Margen interno. Separacion entre el borde externo y el contenido de todos los lados*/
+}
+
+/* p{
+    text-align: center;
+} */
+
+/* em strong{
+    color:red;
+} */
+
+/* #mision{
+    font-size: 20px;
+} */
+
+
+
+/*Diferenciales*/
+
+/* .diferenciales{
+    background: #FFFFFF;
+    padding: 30px;
+} */
+
+
+/*
+ul{
+    /*Actualmente, la lista esta en forma block, que ocupa todo el ancho del viewport, entonces quiero que pase a ser inline-block para que ocupe solo el ancho de su contenido y que pueda ser ajustable.*/
+    /* display: inline-block; */
+    /*Para que alinee los objetos partiendo desde la linea superior y no inferior, voy a usar vertical-align:top */
+    /*vertical-align:top;*/
+   /* width: 20%;*//*Para que la lista ocupe ese porcentaje de ancho de la pantalla*/
+    /*margin-right: 15%;*//*Que la separacion externa sea del 15% de la pantalla.*/
+
+
+
+
+/*CSS para nuestra home*/
+
+/*Formas de seleccionar
+elemento > hijo{ } Agarra solo a los hijos directos (no ñietos) del elemento contenedor.
+
+elemento + elem.posterior{ }  Agarra el elemento posterior. Por ejemplo: 
+img + p{ }  Agarra solo al primer p que este posterior a la imagen.
+
+img ~ p{ } Agarra todos los elementos seleccionados posteriores. En este caso, agarra todos los p que vengan luego de img.
+
+.claseEjemplo p:not(#idejemplo){
+    backgrond: orange;
+} 
+Esto seria que a todos los p de la claseEjemplo se le aplique el fondo naranja, menos a la p de id #idejemplo.*/
+
+.principal{
+    padding: 3em 0;
+    background: #FEFEFE;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.titulo-principal{
+    text-align: center;
+    font-size: 2em; /*Que sea 2 veces el tamaño por defecto del texto. */
+    margin-bottom: 1em; 
+    clear: left;
+}
+
+/* .titulo-principal:first-letter{
+    font-weight: bold;
+} */
+
+.principal p{
+    margin-bottom: 1em;
+
+}
+
+.principal strong{
+    font-weight: bold;
+}
+.principal em{
+    font-style: italic;
+}
+
+.utensillos{
+    width: 120px;
+    float: left; /*Coloca el elemento hacia la izquierda de la pantalla*/
+    margin: 0 20px 20px 0;
+}
+
+/*----Mapa----*/
+
+.mapa{
+    padding: 3em 0;
+    /*Ejemplos de gradient 
+    background: linear-gradient(45deg, orange 30%,blue, red, black); */
+    /* background: radial-gradient(orange 30%,blue, red, black); */
+    background: linear-gradient(#FEFEFE,#888888);
+}
+
+.mapa p{
+    margin-bottom: 2em;
+    text-align: center;
+
+}
+
+.mapa-contenido{
+    width: 940px;
+    margin: 0 auto;
+}
+
+/*------diferenciales---------*/
+.diferenciales{
+    padding: 3em 0;
+    background: #888888;
+    
+}
+.contenido-diferenciales{
+    width: 640px;
+    margin:0 auto ;
+}
+
+.lista-diferenciales{
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+/*Otras pseudo-clases ademas de hover*/
+.items:before{/*Que antes de cada item, se muestre el contenido que va entre comillas.*/
+    content: "★";
+}
+
+.items:first-child{/*Primer elemento de items. Con nth-child(x) podemos decirle cual de todos queremos que se vea modificado. Con 2n como propiedad podemos decir que sean todos los pares*/
+    font-weight: bold;
+}
+
+.items{
+    line-height: 1.5; /*Seria poner el alto de la letra en 150% */
+    
+}
+
+.imagenDiferenciales{
+    width: 60%;
+    transition: 400ms;
+    box-shadow: 10px 10px 25px 15px #000;/*sombra de 10px a la derecha, 10px hacia abajo, difuminado de 25px y queremos que esa sombra llegue hasta 15px color negro. Podria agregar mas sombras en la misma box shadoz separandolas con coma
+    
+    Tambien podria hacer sombras para texto con: text-shadow
+
+    Tambien podria hacer una sombra hacia dentro con: 
+    box-shadow: inset 0 0 30px red; Donde el punto de referencia sea desde el centro 0,0 del bloque y 30px de su elongacion con color rojo.*/
+}
+.imagenDiferenciales:hover{
+    opacity: .3;
+}
+.video{
+    width: 560px;
+    margin: 1em auto;
+}
+
+/*Media Query*/
+@media screen and (max-width:480px){/*Si encuentras una pantalla hasta 480px de maximo, aplicar lo siguiente*/
+
+    h1{
+        text-align: center;
+    }
+    nav{
+        position: static;/*Pone al elemento a su posicion original, como es en el flujo normal del html*/
+        
+    }
+
+    .caja, .principal, .mapa-contenido, .contenido-diferenciales, .video {
+        width: auto;
+    }
+    
+    .lista-diferenciales, .imagenDiferenciales{
+        width: 100%;
+    }
+    
+}

@@ -1,0 +1,95 @@
+.populares{
+    padding: 3rem 0.5rem;
+}
+
+.populares__contenido{
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: "contenido";
+    padding: 1rem 0rem;
+}
+
+/*Header anterior a las cartas*/
+.populares__header{
+    border-bottom: 1px solid #dcdcdc;
+    display: flex;
+    justify-content: space-between;
+}
+
+.populares__boton{
+    background: transparent;
+    border: none;
+    color: #333333;
+
+}
+
+.populares__card{
+    background: #fdfdfd;
+    width:calc(20% - 1rem);/*Para que cada carta tenga un ancho del 20% del contenedor(populares).*/ 
+    margin-right: .5rem;/*Margen externo derecho de cada carta*/
+    margin-left: .5rem;
+
+    display: grid; /*Declaramos que este es un contenedor grid*/
+    grid-template-areas: /*Dentro de populares__card va a haber estas dos areas:*/
+    "card-imagen"
+    "card-base";
+    grid-template-columns: 100%; /*columna tenga un ancho del 100% del contenedor (la carta individual). Recordemos que dijimos que cada carta tiene ancho 20%-1rem.*/
+    grid-template-rows: 220px auto; /*para que la primer area ocupe 173px alto y la segunda auto alto*/ 
+}
+
+.populares__card___imagen{
+    grid-area: "card-imagen";/*nombre de grid especificado*/
+    width: 100%;/*Imagen ocupe el 100% ancho del contenedor(cada carta)*/
+    height: 100%;
+}
+
+.populares__card___base{
+    grid-area: "card-base";/*nombre de grid especificado*/
+    display: grid;/*Declaramos que sea grid*/
+    grid-template-areas: /*Ya que son 2 filas en una columna, puedo hacer el template rows directamente.*/
+    "card-header" 
+    "card-descripcion";
+    grid-row-gap: .5rem;/*Linea separadora entre cuadrados*/
+    grid-template-rows: 50px auto;/*header ocupe 50px alto y la descripcion auto alto*/
+    padding: .75rem;/*margen interno de la base*/
+}
+
+/*Dentro de base*/
+.populares__card___descripcion{
+    color: #333333;
+    line-height:1.5;/*separacion entre lineas de texto*/
+    margin: 1rem 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: "card-descripcion";
+    padding: 1rem 0rem;
+
+    text-align: justify; /*Que se alinee el texto hacia la izquierda y hacia la derecha.*/
+}
+
+
+
+.populares__card___titulo{
+    color: #333333;
+    font-size: 1.5rem;
+}
+
+.populares__card___data{
+    color: #808080;
+    font-size: .9rem;
+}
+
+/*Titulo de la seccion populares*/
+.populares__titulo{
+    font-weight: 500;
+}
+
+/*Iconos de las secciones*/
+ .populares__icon{
+    margin-right: .25rem;
+}
+
+.populares__card:last-child{
+    margin-right: 0;
+}

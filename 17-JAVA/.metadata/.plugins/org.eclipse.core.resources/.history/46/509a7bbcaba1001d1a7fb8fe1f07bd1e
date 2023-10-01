@@ -1,0 +1,40 @@
+package ar.com.collectionsprac;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import ar.com.collectionsprac.model.Cursada;
+
+public class ejemplo7 {
+	public static void main(String[] args) {
+		
+		String alumno1 = "Zgustin Perea";
+		String alumno2 = "Joel Miller";
+		String alumno3 = "Leon Kennedy";
+		String alumno4 = "Lara Croft";
+		String alumno5 = "Peter Parker";
+		String alumno6 = "John Marston";
+		
+		//Collections tiene varias ramificaciones, entre ellas List, Set Queue, Deque
+		//Vamos a ver Set
+		
+		Set<String> listaAlumnos = new HashSet<>() ;//HashSet es un equivalente de ArrayList.
+		listaAlumnos.add(alumno1);
+		listaAlumnos.add(alumno2);
+		listaAlumnos.add(alumno3);
+		listaAlumnos.add(alumno4);
+		listaAlumnos.add(alumno5);
+		listaAlumnos.add(alumno6);
+		
+		for(String alumno : listaAlumnos) {
+			System.out.println(alumno);
+		}
+		
+		
+	}
+}

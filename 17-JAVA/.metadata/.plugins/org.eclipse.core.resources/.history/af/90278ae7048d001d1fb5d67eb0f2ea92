@@ -1,0 +1,14 @@
+//Clase utilzada para verificar el inicio de sesion
+public class SistemaInterno {
+	String clave = "12345";
+	public boolean autentica(Gerente gerente) {
+		if(gerente.iniciarSesion(clave)) {
+			System.out.println("Login exitoso");
+			return true;
+		}else {
+			System.out.println("Error login");
+			return false;
+		}
+
+	}
+}

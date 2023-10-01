@@ -1,0 +1,58 @@
+package ar.com.collectionsprac;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import ar.com.collectionsprac.model.Alumno;
+import ar.com.collectionsprac.model.Cursada;
+
+public class ejemplo11 {
+	public static void main(String[] args) {
+		
+		//Probamos como extraer un dato de un HashSet
+		
+		
+		Cursada curso1 = new Cursada("Geometria", 30);
+		
+		Alumno alumno1 = new Alumno("Agustin Perea", "001");
+		Alumno alumno2 = new Alumno("Joel Miller", "002");
+		Alumno alumno3 = new Alumno("Leon Kennedy", "003");
+		Alumno alumno4 = new Alumno("Lara Croft", "004");
+		Alumno alumno5 = new Alumno("Rick Sanchez", "005");
+		Alumno alumno6 = new Alumno("Peter Parker", "006");
+		Alumno alumno7 = new Alumno("Eric Cartman", "007");
+		Alumno alumno8 = new Alumno("John Marston", "008");
+		
+		
+		//Gracias al addAlumno creado en Cursada.java, podemos agregar un alumno al curso seleccionado	
+		curso1.addAlumno(alumno1);
+		curso1.addAlumno(alumno2);
+		curso1.addAlumno(alumno3);
+		curso1.addAlumno(alumno4);
+		curso1.addAlumno(alumno5);
+		curso1.addAlumno(alumno6);
+		curso1.addAlumno(alumno7);
+		curso1.addAlumno(alumno8);
+
+		
+		//curso1.getAlumno().forEach(alumno -> System.out.println(alumno));
+		
+		//Tomar un alumno por el codigo con metodo stream
+		//curso1.getAlumno().stream().filter(a -> a.getCodigo().equalsIgnoreCase("003"));
+		//Como buena practica ya que sabemos el valor que queremos comparar, lo hacemos como la siguiente manera
+		Optional<Alumno> alumno = curso1.getAlumno().stream().filter(a -> "003".equalsIgnoreCase(a.getCodigo())).findFirst();//Aqui con stream hacemos filter, que por cada alumno compara (sin importar mayusculas) el string 003 con el codigo de cada alumno. findFirst es para que encuentre al primero con ese codigo, en este caso de todas formas seria el unico.
+		//Como es un Optional, puede tener o no un valor
+		
+		
+	}
+	
+}

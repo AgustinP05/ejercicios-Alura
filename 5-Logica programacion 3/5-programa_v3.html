@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+
+       
+        function dibujarCuadradoRojo(x,y){
+
+            var x;
+            var y;
+
+            var pantalla= document.querySelector("canvas"); 
+            var pincel= pantalla.getContext("2d");
+
+            pincel.fillStyle="red";
+            pincel.fillRect(x,y,50,50);
+        
+            pincel.strokeStyle="black";
+            pincel.strokeRect(x,y,50,50);
+
+        }
+
+        function dibujarCuadradoAmarillo(x,y){
+
+            var x;
+            var y;
+
+            var pantalla= document.querySelector("canvas"); 
+            var pincel= pantalla.getContext("2d");
+
+            pincel.fillStyle="yellow";
+            pincel.fillRect(x,y,50,50);
+        
+            pincel.strokeStyle="black";
+            pincel.strokeRect(x,y,50,50);
+
+        }
+
+        function dibujarCuadradoVerde(x,y){
+
+            var x;
+            var y;
+
+            var pantalla= document.querySelector("canvas"); 
+            var pincel= pantalla.getContext("2d");
+
+            pincel.fillStyle="green";
+            pincel.fillRect(x,y,50,50);
+        
+            pincel.strokeStyle="black";
+            pincel.strokeRect(x,y,50,50);
+
+        }
+        
+
+        dibujarCuadradoRojo(0,0);
+        dibujarCuadradoAmarillo(0,50);
+        dibujarCuadradoVerde(0,100); 
+        /*Programe a esta function para que genere un cuadrado con borde. Y en el parametro, definir la posicion.*/
+
+
+
+        /*En el siguiente archivo voy a hacer lo mismo pero mas optimizado, con una funcion general, y que ademas le pueda agregar color*/
+
+        
+       
+
+    </script>
+</body>
+</html>

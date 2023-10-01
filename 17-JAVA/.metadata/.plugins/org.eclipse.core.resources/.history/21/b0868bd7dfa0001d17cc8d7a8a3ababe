@@ -1,0 +1,28 @@
+package ar.com.collectionsprac;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class ejemplo2 {
+	public static void main(String[] args) {
+		
+		Cursada curso1 = new Cursada("geometria", 30);
+		Cursada curso2 = new Cursada("Fisica", 10);
+		Cursada curso3 = new Cursada("Quimica", 40);
+		Cursada curso4 = new Cursada("Historia", 25);
+		
+
+		ArrayList<Cursada> cursos = new ArrayList<Cursada>();	
+		cursos.add(curso1);
+		cursos.add(curso2);
+		cursos.add(curso3);
+		cursos.add(curso4);
+		
+		System.out.println(cursos);
+		
+		//Ordenar con Collections
+		Collections.sort(cursos);//Como la lista contiene datos del tipo Cursada, da error ya que esa clase no implementa la interface Comparable como String en el ejemplo1.java
+		//Luego de implementar la interfaz en cursada y sobreescribirla, no dará error.
+		
+	}
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="400"> </canvas>
+
+    <script>//Vamos a crear un circulo en movimiento
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");    
+        pincel.fillStyle = "grey";
+        pincel.fillRect(0,0,600,400);
+
+
+        function disenharCircunferencia(x,y,radio){
+            pincel.fillStyle="blue";
+            pincel.beginPath();
+            pincel.arc(x,y,radio,0,2*Math.PI);
+            pincel.fill();
+
+        }
+
+
+        /*for(var x=20;x<600;x++){
+            disenharCircunferencia(x,20,10);
+        }*///omo se puede ver como resultado, nos dibuja todos esos circulos en un milisegundo, cosa que no queremos. No es que borra los circulos previamente dibujados Entonces puede que no sea efectivo un for para esta ocasion. Entonces tenemos que crear una funcion para que limpie los circulos anteriores cada vez que dibuja uno nuevo. Lo llamare limpiarPantalla.
+
+
+        function limpiarPantalla(){
+            pincel.clearRect(0,0,600,400);
+        }//Para limpiar la pantalla desde un punto a otro.
+
+        /*Tambien tengo que crear una function para dibujar un circulo cada tanto tiempo, asi dar la sensacion de que esta viajando por la pantalla.*/
+       /* setInterval(disenharCircunferencia(20,20,10),1000); Con esto lo que hago es dibujar el circulo cada egundo pero en la misma posicion, no quiero eso. Entonces voy a hacer lo siguiente.*/
+        var x=0;
+       function actualizarPantalla(){
+            limpiarPantalla();
+            disenharCircunferencia(x,20,10);
+            x++;
+       } //Con esto hago que la function borre la pantalla y dibuje el circulo en la primera posicion X, luego vuelve a borrar y vuelve a dibujar. Asi hasta que se termina la pantalla.
+
+       setInterval(actualizarPantalla,1000);//Para que ejecute la function cada segundo.
+       //La function que va dentro, tiene que estar sin parentesis, porque sino no se va a accionar por setInterval. Se accionaria al momento de iniciar el programa y no por el setInterval.
+
+    </script>
+
+    
+</body>
+</html>

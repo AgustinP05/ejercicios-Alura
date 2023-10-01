@@ -1,0 +1,11 @@
+package ar.com.collectionsprac;
+
+public class ejemplo1 {
+	public static void main(String[] args) {
+	
+		//Otra forma de ordenar listas
+		List<String> cursosList = cursos.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+		System.out.println(cursosList);
+		
+	}
+}

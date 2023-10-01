@@ -1,0 +1,18 @@
+.pie-de-pagina{
+    background: #bfbfbf;
+    
+    padding: 1.6rem 5rem;
+    text-align: right;
+}
+
+footer a{
+    color: #fdfdfd;
+    text-decoration: none;
+}
+
+@media screen and (min-width:0){
+    .pie-de-pagina{
+        text-align: center;
+    }
+   
+}

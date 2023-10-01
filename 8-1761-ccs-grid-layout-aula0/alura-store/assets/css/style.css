@@ -1,0 +1,46 @@
+.app {
+    background: #f1f1f1;
+    display: grid;
+    grid-template-areas:
+    "encabezado"
+    "contenido"
+    "rodapie" ;
+    grid-template-columns: auto;
+    grid-template-rows: 75px auto auto;
+}
+
+.encabezado {
+    grid-area: "encabezado"; 
+
+    display: flex;/*Lo convierte en un contenedor flex*/
+    align-items: center;/*Alinea el contenido desde arriba y abajo hacia el centro*/
+    padding: 0 2rem;
+}
+
+.menu__link{
+    color: #333333;
+    padding: .5rem 1rem;
+}
+
+.menu__link{
+    font-weight: 700;/*Se lo agregué*/
+    font-size: 1.4rem;
+}
+/*Aumento general de letra*/
+.destaques__categorias___link, .populares__header, .populares__boton{
+    font-size: 1.2rem;
+}
+/*---------------*/
+.contenido {
+    grid-area: "contenido";
+    padding: 0 2rem;
+}
+
+.rodapie { 
+    grid-area: "rodapie";
+
+    background: #fdfdfd;
+    color: #333333;
+    padding: 1rem;
+    text-align: center;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function saltolinea() {
+            document.write("<br><br>");
+
+        }
+
+        function imprimirAlgo(frase){
+            document.write(frase);
+        } 
+
+        /*Utilizando un asterisco, voy a imprimir 10 y que salten de linea.*/
+        var contLineas=1;
+        for(var lineas=1;(lineas<=20);lineas++){   
+            for(var asterisco=1;(asterisco<=10);asterisco++){
+                    imprimirAlgo("*");
+            }
+            saltolinea();
+        } /*Con el primer for, lo que hago es decir cuantas lineas se van a hacer en todo el ciclo. Con el for de adentro, hago que se imprima 10 asteriscos por fila. Y en el final del primer for, le puse un saltoLinea() para que cada vez que dibuje una linea, comience otra abajo.*/
+
+
+    </script>
+</body>
+</html>

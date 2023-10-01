@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>MAMAMAMAICRA</h1>
+    <!-- PRIMER PASO: Crear la etiqueta canvas con sus dimensiones. -->
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        //SEGUNDO PASO: Traer del objeto document, el selector canvas. Lo voy a llamar pantalla
+        var pantalla= document.querySelector("canvas"); 
+        //TERCER PASO: Le vamos declarar el contexto que va a tener el objeto pantalla, en este caso va a ser 2d. Y esta accion la voy a llamar pincel.
+        var pincel= pantalla.getContext("2d");
+
+
+        //PASO CUATRO: Declarar el color que vamos a usar.
+        pincel.fillStyle="darkgreen";
+        //PASO CINCO: Podemos crear rectangulos del color seleccionado en el canvas utilizado.
+        pincel.fillRect(150,50,350,300); //Con esto voy a dar color verde a toda la superficie desde el punto (150,0) al (350,300).
+        
+        pincel.fillStyle="black";
+        pincel.fillRect(195,100,90,90);//ojo
+        pincel.fillRect(353,100,90,90);//ojo
+
+        
+        pincel.fillRect(284,189,70,100);//nariz
+
+        
+        pincel.fillRect(245,238,40,110);//boca
+        pincel.fillRect(350,238,40,110);//boca
+
+
+
+    </script>
+</body>
+</html>

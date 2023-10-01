@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+
+        /*  Voy a hacerlo en el siguiente archivo :) para que se note mejor la diferencia
+        function dibujarCuadradoVerde(){
+        }*/
+
+
+
+        var pantalla= document.querySelector("canvas"); 
+        var pincel= pantalla.getContext("2d");
+
+        pincel.fillStyle="green";
+        pincel.fillRect(0,0,50,50);
+        //Ahora esto es como dibujar lineas con una brocha. Con esto le vamos a hacer un borde al cubo verde
+        pincel.strokeStyle="black";
+        pincel.strokeRect(0,0,50,50);//La posicion del borde
+
+        
+        //podria copiar y pegar para hacer varios cuadrados:
+        pincel.fillRect(50,0,50,50);
+        pincel.strokeRect(50,0,50,50);
+        //otro
+        pincel.fillRect(100,0,50,50);
+        pincel.strokeRect(100,0,50,50);
+        // otro mas
+        pincel.fillRect(150,0,50,50);
+        pincel.strokeRect(150,0,50,50);
+        //y otro mas
+        pincel.fillRect(200,0,50,50);
+        pincel.strokeRect(200,0,50,50);
+         /*Pero repetir codigo es una mala practica. Entonces voy a crear una function */
+
+
+    </script>
+</body>
+</html>

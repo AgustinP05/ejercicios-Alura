@@ -1,0 +1,17 @@
+package ar.com.collectionsprac;
+
+public class ejemplo1 {
+	public static void main(String[] args) {
+	
+		String curso1= "Geometria";
+		String curso2= "Fisica";
+		String curso3="Quimica";
+		String curso4="Historia";
+
+		
+		//Otra forma de ordenar listas
+		List<String> cursosList = cursos.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+		System.out.println(cursosList);
+		
+	}
+}

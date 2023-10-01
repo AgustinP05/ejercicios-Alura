@@ -1,0 +1,17 @@
+package ar.com.bytebank.test;
+
+import ar.com.bytebank.modelo.Cuenta;
+
+public class CuentaEspecial extends Cuenta {
+	
+	
+	
+	@Override
+	public void depositar(double valor) {
+		// TODO Auto-generated method stub
+		super.saldo = 12.34; //Ahora me permite usar la propiedad del padre aunque este en otro paquete 
+	}
+
+	
+
+}

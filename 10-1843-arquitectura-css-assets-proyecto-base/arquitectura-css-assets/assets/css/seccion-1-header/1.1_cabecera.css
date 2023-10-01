@@ -1,0 +1,35 @@
+.cabecera{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    background-color: #f9f9f9;
+    height: auto;
+}
+
+
+
+@media screen and (min-width: 0){/*Celulares*/
+    .cabecera{
+        justify-content: center;
+        padding: 0 1rem;
+    }
+
+    .logo{
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 768px){/*Tablets*/
+    .cabecera{
+        justify-content: space-between;
+        padding: 0 5rem;
+    }
+
+    .logo{
+        display: block;
+    }
+}

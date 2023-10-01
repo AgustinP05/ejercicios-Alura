@@ -1,0 +1,37 @@
+package ar.com.collectionsprac.model;
+
+public class Clase implements Comparable<Clase> {
+	private String nombre;
+	
+	public Clase(String nombre){
+		this.nombre = nombre;
+	}
+	
+	
+	//Setters y getters
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	///////////
+	
+	
+	//Metodo sobreescrito para que retorne el nombre y no el hash
+		@Override
+		public String toString() {
+			return this.nombre;
+		}
+
+		
+		//Metodo implementado por Comparable
+		@Override
+		public int compareTo(Clase o) {
+			// TODO Auto-generated method stub
+			return this.nombre.compareTo(o.getNombre());
+		}
+
+}

@@ -1,0 +1,26 @@
+package ar.com.collectionsprac;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import ar.com.collectionsprac.model.Cursada;
+
+public class ejemplo7 {
+	public static void main(String[] args) {
+		
+		String alumno1 = "Agustin Perea";
+		String alumno2 = "Joel Miller";
+		String alumno3 = "Leon Kennedy";
+		String alumno4 = "Lara Croft";
+		String alumno5 = "Peter Parker";
+		String alumno6 = "John Marston";
+		
+		//Collections tiene varias ramificaciones, entre ellas List, Set Queue, Deque
+		//Vamos a ver Set
+
+		
+	}
+}

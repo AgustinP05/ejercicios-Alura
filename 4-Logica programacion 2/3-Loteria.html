@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sortea(n){
+            var numeroPensado = Math.round(Math.random()*n);
+        }
+        var numeroPensado = sortea(10);
+        var numeroLanzado= parseInt(prompt("Elija un numero "));
+
+        if(numeroPensado===numeroLanzado){
+            document.write("Muy bien! Pasaste la prueba.")
+        } else{
+            if(numeroLanzado > numeroPensado){
+                document.write("El numero pensado es menor")
+            } else{
+                document.write("El numero pensado es mayor")
+            }
+        } 
+    
+ 
+        
+       
+    </script>
+</body>
+</html>

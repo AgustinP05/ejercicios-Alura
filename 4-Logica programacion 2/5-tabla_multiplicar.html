@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CALCULAR TABLA MULTIPLICAR</h1>
+    <script>
+              function saltolinea() {
+            document.write("<br><br><br>");
+
+        }
+
+        function imprimirAlgo(frase){
+            document.write(frase);
+        } /*Para poder invocar imprimirAlgo("Escribir cual cosa aquí dentro"), tenemos que declarar que document.write() va a tener adentro una variable 'frase'. Y que a su vez, la funcion imprimirAlgo reciba como parametro una variable frase. Ahora todo lo que escribamos dentro de imprimirAlgo(), va a ser tambien 'frase' y se acciona la funcion imprimiendo el texto como un document.write.*/
+
+
+         /*Modo interactivo*/
+        
+        var numElegido=parseInt(prompt("Elige el numero al que quieres multiplicar"));
+        var numlLimite=parseInt(prompt("Elegiste el numero "+numElegido+",  hasta cuanto lo quieres multiplicar?"));
+        var numInicio=1;
+
+        imprimirAlgo("Con ciclo While.");
+        saltolinea();
+        
+        while(numInicio<=numlLimite){
+            imprimirAlgo("Se esta multiplicando "+numElegido+" por "+numInicio+" que da como resultado: "+(numElegido*numInicio));
+            numInicio++;
+            saltolinea();
+        }   
+
+
+        imprimirAlgo("Con ciclo for");
+        saltolinea();
+        /*
+        for(parte1;parte2;parte3){}
+        for(iniciacion;condicion;incrementador){...} */
+        for(numInicio=1;numInicio<=numlLimite;numInicio++){
+            imprimirAlgo("Se esta multiplicando "+numElegido+" por "+numInicio+" que da como resultado: "+(numElegido*numInicio));
+            saltolinea();
+        }
+
+    </script>
+</body>
+</html>

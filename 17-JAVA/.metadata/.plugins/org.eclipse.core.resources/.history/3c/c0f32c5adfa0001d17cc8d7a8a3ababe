@@ -1,0 +1,17 @@
+package ar.com.collectionsprac;
+
+public class Cursada {
+	private String nombre;
+	private int tiempo;
+	
+	public Cursada(String nombre, int tiempo){
+		this.nombre = nombre;
+		this.tiempo = tiempo;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return this.nombre;
+	}
+}
